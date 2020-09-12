@@ -288,7 +288,7 @@ namespace RealTimeFaceApi.Cmd
 
                 Cv2.Rectangle(result, face1_1, face1_2, new Scalar(80, 18, 236), 2);
                 Cv2.Rectangle(result, face2_1, face2_2, new Scalar(80, 18, 236), Cv2.FILLED);
-                Cv2.PutText(result, "Shingo Sakamoto", face3_1, 0, 0.4, new Scalar(255, 255, 255));
+                Cv2.PutText(result, "Recognized...", face3_1, 0, 0.4, new Scalar(255, 255, 255));
             }
 
             return result;
