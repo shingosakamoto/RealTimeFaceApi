@@ -255,10 +255,30 @@ namespace RealTimeFaceApi.Cmd
             // Render all detected faces
             foreach (var face in state.Faces)
             {
-                var center = new Point
+                var face1_1 = new Point
                 {
-                    X = face.Center.X,
-                    Y = face.Center.Y
+                    X = face.Center.X - (int)(face.Size.Height * 0.7),
+                    Y = face.Center.Y - (int)(face.Size.Height * 0.7)
+                };
+                var face1_2 = new Point
+                {
+                    X = face.Center.X + (int)(face.Size.Width * 0.7),
+                    Y = face.Center.Y + (int)(face.Size.Height * 0.8)
+                };
+                var face2_1 = new Point
+                {
+                    X = face.Center.X - (int)(face.Size.Width * 0.7),
+                    Y = face.Center.Y - (int)(face.Size.Height * 0.7)
+                };
+                var face2_2 = new Point
+                {
+                    X = face.Center.X + (int)(face.Size.Width * 0.7),
+                    Y = face.Center.Y - (int)(face.Size.Height * 0.7) + 20
+                };
+                var face3_1 = new Point
+                {
+                    X = face.Center.X - (int)(face.Size.Width * 0.7),
+                    Y = face.Center.Y - (int)(face.Size.Height * 0.7) + 15
                 };
                 var axes = new Size
                 {
@@ -266,7 +286,9 @@ namespace RealTimeFaceApi.Cmd
                     Height = (int)(face.Size.Height * 0.5) + 10
                 };
 
-                Cv2.Ellipse(result, center, axes, 0, 0, 360, _faceColorBrush, 4);
+                Cv2.Rectangle(result, face1_1, face1_2, new Scalar(80, 18, 236), 2);
+                Cv2.Rectangle(result, face2_1, face2_2, new Scalar(80, 18, 236), Cv2.FILLED);
+                Cv2.PutText(result, "Shingo Sakamoto", face3_1, 0, 0.4, new Scalar(255, 255, 255));
             }
 
             return result;
