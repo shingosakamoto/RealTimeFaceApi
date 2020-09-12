@@ -36,8 +36,6 @@ cd RealTimeFaceApi.Cmd
 dotnet run
 ```
 
-![One Person Moving](one-person-moving.gif)
-
 # Run with a video file
 Add path to file. In Visual Studio, go to `RealTimeFaceApi.Cmd` properties, `Debug` and under `Application arguments:` add the path to the video.
 
@@ -46,6 +44,4 @@ You can also run from console:
 cd RealTimeFaceApi.Cmd
 dotnet run -- "C:\Users\JK\Downloads\Real-time Face Recognition With Microsoft Cognitive Services.mp4"
 ```
-
-![Video File Face Detection](video-face-detection.png)
  
